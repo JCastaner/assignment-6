@@ -129,6 +129,15 @@ namespace csi281 {
         // the backingStore for the first time
         void resize(int cap) {
             // YOUR CODE HERE
+			if (backingStore == nullptr) {
+				backingStore = new list<pair<K, V>>[cap];
+				for (int i = 0; i < cap; i++) {
+
+				}
+			}
+			else {
+
+			}
         }
         
         // hash anything into an integer appropriate for
