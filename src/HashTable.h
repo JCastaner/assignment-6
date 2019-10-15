@@ -130,13 +130,29 @@ namespace csi281 {
         void resize(int cap) {
             // YOUR CODE HERE
 			if (backingStore == nullptr) {
-				backingStore = new list<pair<K, V>>[cap];
+				capacity = cap;
+				backingStore = new list<pair<K, V>>[capacity];
 				for (int i = 0; i < cap; i++) {
-
+					backingStore[i] = NULL;
 				}
 			}
 			else {
+				oldSize = capacity;
+				capacity = cap;
+				list<pair<K, V>> *oldTable = backingStore;
+				backingStore = new list<pair<K, V>>[cap];
+				for (int i = 0; i < cap; i++) {
+					backingStore[i] = NULL;
+				}
+				for (int i = 0; i < oldSize; i++) {
+					if (oldTable[i] != NULL) {
+						list<pair<K, V>> *oldEntry;
+						list<pair<K, V>> *entry = oldTable[i];
+						while (entry != NULL) {
 
+						}
+					}
+				}
 			}
         }
         
