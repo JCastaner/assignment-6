@@ -66,6 +66,14 @@ namespace csi281 {
         // the original and not a copy
         void put(const K key, const V value) {
             // YOUR CODE HERE
+			size_t index = hash(key) % capacity;
+			if (capacity >= MAX_LOAD_FACTOR) {
+				int newCap = capacity * growthFactor;
+				resize(newCap);
+			}
+			if (backingStore[index] == NULL) {
+
+			}
         }
         
         // Get the item associated with a particular key
