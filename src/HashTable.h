@@ -79,6 +79,15 @@ namespace csi281 {
         // the original and not a copy
         optional<V> get(const K &key) {
             // YOUR CODE HERE
+			size_t index = hash(key) % capacity;
+			while (backingStore[index] != NULL && backingStore[index]->K != key) {
+				index = index + 1;
+			}
+			if (backingStore[index] == NULL) {
+				optional<V>{nullopt}
+			}
+			else
+				optional<V>{backingStore[index]->V}
         }
         
         // Remove a key and any associated value from the hash table
@@ -89,6 +98,12 @@ namespace csi281 {
         // the original and not a copy
         void remove(const K &key) {
             // YOUR CODE HERE
+			size_t index = hash(key) % capacity;
+			if (backingstore[index] != NULL) {
+				list<pair<K, V>> *prevEntry = NULL;
+				list<pair<K, V>> *entry = backingstore[index];
+
+			}
         }
         
         // Calculate and return the load factor
@@ -149,7 +164,7 @@ namespace csi281 {
 						list<pair<K, V>> *oldEntry;
 						list<pair<K, V>> *entry = oldTable[i];
 						while (entry != NULL) {
-
+							put()
 						}
 					}
 				}
