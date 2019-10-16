@@ -154,27 +154,25 @@ namespace csi281 {
             // YOUR CODE HERE
 			if (backingStore == nullptr) {
 				capacity = cap;
-				backingStore = new list<pair<K, V>>[capacity];
+				backingStore = new list<pair<K, V>>();
 				for (int i = 0; i < cap; i++) {
-					backingStore[i] = NULL;
+					backingStore[i] = list<pair<K, V>>[cap];
 				}
 			}
 			else {
-				oldSize = capacity;
+				int oldSize = capacity;
 				capacity = cap;
 				list<pair<K, V>> *oldTable = backingStore;
 				backingStore = new list<pair<K, V>>[cap];
 				for (int i = 0; i < cap; i++) {
-					backingStore[i] = NULL;
+					backingStore[i] = list<pair<K, V>>();
 				}
 				for (int i = 0; i < oldSize; i++) {
-					if (oldTable[i] != NULL) {
-						list<pair<K, V>> *oldEntry;
-						list<pair<K, V>> *entry = oldTable[i];
-						while (entry != NULL) {
-							put()
-						}
+					for (auto& p : oldtable[i]) {
+						size_t index = hash(p.first) % capacity;
+						backingstore[index].push_back(p);
 					}
+				delete oldTable[];
 				}
 			}
         }
