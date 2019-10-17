@@ -66,14 +66,14 @@ namespace csi281 {
         // the original and not a copy
         void put(const K key, const V value) {
             // YOUR CODE HERE
-			size_t index = hash(key) % capacity;
+			/*size_t index = hash(key) % capacity;
 			if (capacity >= MAX_LOAD_FACTOR) {
 				int newCap = capacity * growthFactor;
 				resize(newCap);
 			}
 			if (backingStore[index] == NULL) {
 
-			}
+			}*/
         }
         
         // Get the item associated with a particular key
@@ -87,7 +87,7 @@ namespace csi281 {
         // the original and not a copy
         optional<V> get(const K &key) {
             // YOUR CODE HERE
-			size_t index = hash(key) % capacity;
+			/*size_t index = hash(key) % capacity;
 			while (backingStore[index] != NULL && backingStore[index]->K != key) {
 				index = index + 1;
 			}
@@ -95,7 +95,7 @@ namespace csi281 {
 				optional<V>{nullopt}
 			}
 			else
-				optional<V>{backingStore[index]->V}
+				optional<V>{backingStore[index]->V}*/
         }
         
         // Remove a key and any associated value from the hash table
@@ -106,12 +106,12 @@ namespace csi281 {
         // the original and not a copy
         void remove(const K &key) {
             // YOUR CODE HERE
-			size_t index = hash(key) % capacity;
+			/*size_t index = hash(key) % capacity;
 			if (backingstore[index] != NULL) {
 				list<pair<K, V>> *prevEntry = NULL;
 				list<pair<K, V>> *entry = backingstore[index];
 
-			}
+			}*/
         }
         
         // Calculate and return the load factor
@@ -162,13 +162,13 @@ namespace csi281 {
 			else {
 				int oldSize = capacity;
 				capacity = cap;
-				list<pair<K, V>> *oldTable = backingStore;
+				list<pair<K, V>>* oldTable = backingStore;
 				backingStore = new list<pair<K, V>>[cap];
 				for (int i = 0; i < cap; i++) {
 					backingStore[i] = list<pair<K, V>>();
 				}
 				for (int i = 0; i < oldSize; i++) {
-					for (auto& p : oldtable[i]) {
+					for (auto p : oldtable[i]) {
 						size_t index = hash(p.first) % capacity;
 						backingstore[index].push_back(p);
 					}
