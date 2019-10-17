@@ -168,7 +168,7 @@ namespace csi281 {
 					backingStore[i] = list<pair<K, V>>();
 				}
 				for (int i = 0; i < oldSize; i++) {
-					for (auto p : oldtable[i]) {
+					for (auto &p : oldtable[i]) {
 						size_t index = hash(p.first) % capacity;
 						backingstore[index].push_back(p);
 					}
